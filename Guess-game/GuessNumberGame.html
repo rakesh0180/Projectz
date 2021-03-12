@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Game</title>
+    <style>
+        #note {
+            color: red;
+        }
+        
+        p {
+            font-size: 25px;
+        }
+        
+        #start {
+            width: 80px;
+            height: 50px;
+            font-size: large;
+            border-radius: 20%;
+            border-color: blue;
+        }
+        
+        #imp {
+            font-size: 15px;
+            font-style: normal;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Guess Game</h1>
+    <h3><span id=note>Note:</span> Before starting the game <span id="imp">(press ctrl+shift+i) to open console</span>
+    </h3>
+    <p>Please keep your console open before starting</p>
+    <button id="start">start</button>
+    <script>
+        const start = document.getElementById('start')
+
+        function startGame() {
+            const name = prompt('Enter your name')
+            console.log(`welcome to guess game ${name}`);
+
+            const target = Math.ceil(Math.random() * 100)
+                // console.log(target);//used to verify target number and guess
+            const maxGuess = 10
+            let flag = false
+
+            for (i = 0; i < maxGuess; i++) {
+                //guess number is a string
+                const guess = Number(prompt(`Guess my number ${maxGuess - i} chances left`))
+
+                if (guess < target) {
+                    console.log("Oops! your guess was low");
+                } else if (guess > target) {
+                    console.log("Oops! your guess was high");
+                } else if (guess === target) {
+                    console.log(`Good job, [${name}]! You guessed my number was in ${i} guesses!`)
+                    flag = true
+                    break;
+                }
+            }
+            if (!flag) {
+                console.log(`Sorry. you didn't get my number. My number is ${target}`);
+            }
+        }
+        start.addEventListener('click', function() {
+            startGame()
+        })
+    </script>
+</body>
+
+</html>
