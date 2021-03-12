@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>This is title page</title>
+    <style>
+        button {
+            width: 100px;
+            margin-left: 120px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table border=".1">
+        <caption><strong>Bill Generate</strong> </caption>
+
+        <thead>
+            <tr align=center>
+                <th>No</th>
+                <th>Item names</th>
+                <th>Cost</th>
+                <th>Quantity <em>in kg</em></th>
+                <th>Total Cost</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr align=center id="tr1">
+                <td>1</td>
+                <td>Apple</td>
+                <td id="rs1">120</td>
+                <td id="qu1">2</td>
+                <td id="td1"></td>
+
+            </tr>
+            <tr id="tr2" align=center>
+                <td>2</td>
+                <td>Mango</td>
+                <td id="rs2">80</td>
+                <td id="qu2">5</td>
+                <td id="td2"></td>
+
+            </tr>
+            <tr id="tr3" align=center>
+                <td>3</td>
+                <td>kiwi</td>
+                <td id="rs3">70</td>
+                <td id="qu3">1</td>
+                <td id="td3"></td>
+
+            </tr>
+            <tr id="tr4" align=center>
+                <td>4</td>
+                <td>Dragon Fruit</td>
+                <td id="rs4">300</td>
+                <td id="qu4">4</td>
+                <td id="td4"></td>
+
+            </tr>
+            <tr id="tr5" align=center>
+                <td>5</td>
+                <td>Orange</td>
+                <td id="rs5">40</td>
+                <td id="qu5">8</td>
+                <td id="td5"></td>
+
+            </tr>
+            <tr id="tr6" align=center>
+                <td>6</td>
+                <td>Butter Fruit</td>
+                <td id="rs6">350</td>
+                <td id="qu6">5</td>
+                <td id="td6"></td>
+            </tr>
+            <tr id="tr7" align=centers>
+
+            </tr>
+        </tbody>
+    </table><br>
+    <button id="submit" type="submit">Total</button>
+    <script>
+        const submit = document.getElementById('submit')
+
+        function totalAmount() {
+            const item1 = parseInt(document.getElementById("rs1").innerHTML)
+            const item2 = parseInt(document.getElementById("rs2").innerHTML)
+            const item3 = parseInt(document.getElementById("rs3").innerHTML)
+            const item4 = parseInt(document.getElementById("rs4").innerHTML)
+            const item5 = parseInt(document.getElementById("rs5").innerHTML)
+            const item6 = parseInt(document.getElementById("rs6").innerHTML)
+
+            const quantity1 = parseInt(document.getElementById("qu1").innerHTML)
+            const quantity2 = parseInt(document.getElementById("qu2").innerHTML)
+            const quantity3 = parseInt(document.getElementById("qu3").innerHTML)
+            const quantity4 = parseInt(document.getElementById("qu4").innerHTML)
+            const quantity5 = parseInt(document.getElementById("qu5").innerHTML)
+            const quantity6 = parseInt(document.getElementById("qu6").innerHTML)
+
+            const td1 = document.getElementById("td1")
+            const td2 = document.getElementById("td2")
+            const td3 = document.getElementById("td3")
+            const td4 = document.getElementById("td4")
+            const td5 = document.getElementById("td5")
+            const td6 = document.getElementById("td6")
+
+            const itemTotal1 = item1 * quantity1
+            const itemTotal2 = item2 * quantity2
+            const itemTotal3 = item3 * quantity3
+            const itemTotal4 = item4 * quantity4
+            const itemTotal5 = item5 * quantity5
+            const itemTotal6 = item6 * quantity6
+
+            td1.innerHTML = `${itemTotal1}`
+            td2.innerHTML = `${itemTotal2}`
+            td3.innerHTML = `${itemTotal3}`
+            td4.innerHTML = `${itemTotal4}`
+            td5.innerHTML = `${itemTotal5}`
+            td6.innerHTML = `${itemTotal6}`
+                /*   const totalQuantity = document.getElementById("totalQuantity")
+                const totalQuantityItems = quantity1 + quantity2 + quantity3 + quantity4 + quantity5 + quantity6
+                  totalQuantity.innerHTML = `Number of items = ${totalQuantityItems}`
+                  totalQuantity.style.textAlign = "center" // center text
+                  totalQuantity.style.color = 'red' //color
+                  totalQuantity.style.fontWeight = "900" //bold */
+
+            /*  const total = document.getElementById("total")
+             const totalAmount = itemTotal1 + itemTotal2 + itemTotal3 + itemTotal4 + itemTotal5 + itemTotal6
+             total.innerHTML = `Total cost = ${totalAmount}`
+             total.style.textAlign = "center" // center text
+             total.style.color = 'red' //text color
+             total.style.fontWeight = "900" // text bold
+              <td></td>
+                 <td></td>
+                 <td></td>
+                 <td id="totalQuantity"></td>
+                 <td id="total"></td>*/
+
+            const total = document.getElementById("tr7")
+            const totalQuantityItems = quantity1 + quantity2 + quantity3 + quantity4 + quantity5 + quantity6;
+            const totalAmount = itemTotal1 + itemTotal2 + itemTotal3 + itemTotal4 + itemTotal5 + itemTotal6;
+            total.innerHTML = `<td></td>
+                 <td></td>
+                 <td></td>
+                 <td  id ='tQua'>Number of items = ${totalQuantityItems}</td>
+                 <td id="tot">Total cost = ${totalAmount}</td>`
+            const tQua = document.getElementById("tQua")
+            const tot = document.getElementById("tot")
+            tQua.style.textAlign = "center"; // center text
+            tQua.style.color = 'red' //color
+            tQua.style.fontWeight = "900" //bold
+            tot.style.textAlign = "center" // center text
+            tot.style.color = 'red' //text color
+            tot.style.fontWeight = "900" // text bold
+
+        }
+        submit.addEventListener('click', function() {
+            totalAmount()
+        })
+    </script>
+</body>
+
+</html>
